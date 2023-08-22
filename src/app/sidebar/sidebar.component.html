@@ -1,0 +1,201 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" [routerLink]=""
+        [routerLinkActive]="['active']">
+        <div class="sidebar-brand-icon">
+            <img src="assets/img/noida_logo_white.png">
+        </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="['active']">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+            <!-- <span class="right badge badge-danger">8</span> -->
+        </a>
+
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <li class="nav-item" *ngIf="this.detailData">
+        <a class="nav-link" [routerLink]="['/inbox']" [routerLinkActive]="['active']">
+            <i class="fas fa-inbox"></i>
+            <span>Inbox</span>
+            <span *ngIf="this.naprUserDetail['response'].userType == 'AD' "
+                class="right badge badge-danger">{{this.detailData['response'][0].adminCount[0]['ib']}}</span>
+
+            <span *ngIf="this.naprUserDetail['response'].userType == 'SD' " class="right badge badge-danger">
+                {{this.detailData['response'][0].staffCount[0]['ib']}}</span>
+
+        </a>
+
+    </li>
+    <hr class="sidebar-divider">
+
+    <li class="nav-item" *ngIf="this.naprUserDetail['response'].userType == 'SD' ">
+        <a class="nav-link" [routerLink]="['/outbox']" [routerLinkActive]="['active']">
+            <i class="fas fa-inbox"></i>
+            <span>Outbox</span>
+            <span class="right badge badge-danger" *ngIf=this.detailData>
+                {{this.detailData['response'][0].staffCount[0]['ob']}}</span>
+
+        </a>
+
+    </li>
+    <hr class="sidebar-divider">
+
+    <li class="nav-item" *ngIf="this.detailData">
+        <a class="nav-link" [routerLink]="['/all-user']" [routerLinkActive]="['active']">
+            <i class="fas fa-users"></i>
+            <span>All User</span>
+            <span *ngIf="this.naprUserDetail['response'].userType"
+                class="right badge badge-danger">{{this.detailData.response[0].commanTotalUserCount}}</span>
+        </a>
+    </li>
+    <hr class="sidebar-divider">
+
+    <li class="nav-item" *ngIf="this.detailData">
+        <a class="nav-link" [routerLink]="['/approved']" [routerLinkActive]="['active']">
+            <i class="fas fa-clipboard-check"></i>
+            <span>Approved</span>
+            <span *ngIf="this.naprUserDetail['response'].userType == 'AD' "
+                class="right badge badge-danger">{{this.detailData['response'][0].adminCount[0]['ap']}}</span>
+            <span *ngIf="this.naprUserDetail['response'].userType == 'SD' " class="right badge badge-danger">
+                {{this.detailData['response'][0].staffCount[0]['ap']}}</span>
+        </a>
+    </li>
+    <hr class="sidebar-divider">
+
+    <li class="nav-item" *ngIf=this.naprUserDetail>
+        <a class="nav-link" [routerLink]="['/rejected']" [routerLinkActive]="['active']">
+            <i class="fas fa-file-excel"></i>
+            <span>Rejected</span>
+            <span *ngIf="this.naprUserDetail['response'].userType == 'AD'  && this.detailData"
+                class="right badge badge-danger">{{this.detailData['response'][0].adminCount[0]['rt']}}</span>
+
+            <span *ngIf="this.naprUserDetail['response'].userType == 'SD' && this.detailData"
+                class="right badge badge-danger">
+                {{this.detailData['response'][0].staffCount[0]['rt']}}</span>
+        </a>
+
+    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo">
+            <i class="fas fa-home"></i>
+            <span>Society</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" [routerLink]="['/manage-society']" [routerLinkActive]="['active']"><i
+                        class="fas fa-building"></i> Manage Society</a>
+                <!-- <a class="collapse-item" [routerLink]="['/manage-manager']" [routerLinkActive]="['active']"><i
+                        class="fas fa-plus-square"></i> Manage Manager</a> -->
+            </div>
+        </div>
+    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true"
+            aria-controls="collapse3">
+            <i class="fas fa-comment-dots"></i>
+            <span>Complaints</span>
+        </a>
+        <div *ngIf="this.complaintData" id="collapse3" class="collapse" aria-labelledby="headingTwo"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <a class="collapse-item" [routerLink]="['/raise-complaint']" [routerLinkActive]="['active']"><i
+                        class="fas fa fa-paper-plane"></i> Raise Complaint</a> -->
+                <a class="collapse-item" [routerLink]="['/view-complaint']" [routerLinkActive]="['active']"><i
+                        class="fas fa-eye"></i>
+                    <span>View Complaint</span>
+                    <span class="right badge badge-danger">
+                        {{this.complaintData['response'][0].viewComplainCount}}</span>
+                </a>
+
+                <a class="collapse-item" [routerLink]="['/complaint-history']" [routerLinkActive]="['active']"><i
+                        class="fas fas fa-file-alt"></i>
+                    <span>Complaint History</span>
+                    <span class="right badge badge-danger">
+                        {{this.complaintData['response'][0].complainHistoryCount}}</span>
+                </a>
+
+            </div>
+        </div>
+    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/manage-notification']" [routerLinkActive]="['active']">
+            <i class="fas fa-bell"></i>
+            <span>Manage Notification</span>
+        </a>
+    </li>
+    <!-- Divider -->
+
+    <hr class="sidebar-divider">
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true"
+            aria-controls="collapse4">
+            <i class="fas fa-cogs"></i>
+            <span>Settings</span>
+        </a>
+        <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" [routerLink]="['/manage-breeds']" [routerLinkActive]="['active']"><i
+                        class="fas fa-dog"></i> Manage Breeds</a>
+                <a class="collapse-item" [routerLink]="['/manage-sector']" [routerLinkActive]="['active']"><i
+                        class="fas fa-city"></i> Manage Sector</a>
+                <a class="collapse-item" [routerLink]="['/manage-village']" [routerLinkActive]="['active']"><i
+                        class="fas fa-home"></i> Manage Village</a>
+
+            </div>
+        </div>
+    </li>
+    <!-- Divider -->
+
+    <hr class="sidebar-divider">
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
+            aria-controls="collapse5">
+            <i class="fas fa-file-alt"></i>
+            <span>Reports</span>
+        </a>
+        <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" [routerLink]="['/report']" [routerLinkActive]="['active']"><i
+                        class="fas fa-file-excel"></i> Report</a>
+                <a class="collapse-item" [routerLink]="['/pet-type-report']" [routerLinkActive]="['active']"><i
+                        class="fas fa-file-excel"></i> Pet Type Report</a>
+            </div>
+        </div>
+    </li>
+    <hr class="sidebar-divider">
+
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline mt-3">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+
+
+</ul>
+<!-- End of Sidebar -->
