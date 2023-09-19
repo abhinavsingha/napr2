@@ -1,8 +1,13 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
   <!-- Page Heading -->
-  <div class="d-sm-flex align-items-center justify-content-end mb-2">
-    <button *ngIf="this.parentData['page'] !== 'inbox' " [routerLink]="['/'+ this.parentData['page']]"
+    <div class="d-sm-flex align-items-center justify-content-end mb-2">
+      <button *ngIf="this.parentData['page'] == 'approved' " (click)="downloadcertificate()"
+              class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm mr-2"><i
+        class="fas far fa-check-square fa-sm"></i>
+        View Certificate</button>
+
+      <button *ngIf="this.parentData['page'] !== 'inbox' " [routerLink]="['/'+ this.parentData['page']]"
       class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm mr-2"><i class="fas fa-arrow-left fa-sm"></i>
       Go Back</button>
 

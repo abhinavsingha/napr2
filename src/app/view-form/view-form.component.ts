@@ -21,6 +21,7 @@ export class ViewFormComponent implements OnInit {
   actionForm: FormGroup;
   actionValue: any;
   disableButton: boolean = true;
+  private file: any;
 
   constructor(private apiService: ApiserviceService,
     private cons: ConstantsService,
@@ -78,6 +79,7 @@ export class ViewFormComponent implements OnInit {
 
   getUserDetail() {
     this.SpinnerService.show();
+    debugger;
     var url = this.cons.api.petDetailsApiUrl + this.parentData['frmId'];
     this.apiService.getApi(url).subscribe({
       next: (v: object) => {
@@ -91,5 +93,27 @@ export class ViewFormComponent implements OnInit {
       },
       complete: () => console.info('complete')
     });
+  }
+
+  downloadcertificate() {
+    debugger;
+    var url = this.cons.api.downloadForm;
+    this.apiService.downloadApiWithToken(url,this.parentData['frmId']).subscribe({
+      next: (v: object) => {
+        this.SpinnerService.hide();
+        let result: { [key: string]: any } = v;
+        this.file = result['object'];
+        this.openPdfUrlInNewTab(this.file);
+      },
+      error: (e) => {
+        this.common.presentAlert('Error', e['error'].response.message, 'error');
+      },
+      complete: () => console.info('complete')
+    });
+    // this.openPdfUrlInNewTab('data/mcpets/formCertificate/1695905870795/NAPR005101.pdf');
+  }
+  openPdfUrlInNewTab(pdfUrl: string): void {
+
+    window.open('http://petregistration.mynoida.co.in/'+'/'+pdfUrl, '_blank');
   }
 }

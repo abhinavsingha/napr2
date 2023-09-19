@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import {LocationStrategy, HashLocationStrategy, DatePipe} from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -90,7 +90,7 @@ import { VillageSearchPipe } from './services/pipe/villagr/village-search.pipe';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }
+  providers: [DatePipe,{ provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })

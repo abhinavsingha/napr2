@@ -39,6 +39,16 @@ export class ApiserviceService {
     const headers = new HttpHeaders().set('token', token);
     return this.http.get(url, { 'headers': headers }).pipe(map(results => results), catchError(this.handleError))
   }
+  downloadApiWithToken(url: any,formId:string) {
+    var token: any;
+    token = localStorage.getItem("userToken");
+    const headers = new HttpHeaders({
+      'token': token,
+      'link': 'http://petregistration.mynoida.co.in/',
+      'id':formId,
+    });
+    return this.http.get(url, { 'headers': headers }).pipe(map(results => results), catchError(this.handleError))
+  }
 
 
   getPostWithToken(url: any, jsonPayload: any) {
@@ -47,6 +57,7 @@ export class ApiserviceService {
     const headers = new HttpHeaders().set('token', token);
     return this.http.post(url, jsonPayload, { 'headers': headers }).pipe(map(results => results), catchError(this.handleError))
   }
+
 
 
   private handleError(error: Response | any) {

@@ -15,8 +15,8 @@ export class ConstantsService {
   // imageUrl = "http://15.206.123.29:8081/"; //prod
 
    serviceUrl="http://petregistration.mynoida.co.in/Naprwebdev/";
-   imageUrl = "http://petregistration.mynoida.co.in/"; 
-
+   imageUrl = "http://petregistration.mynoida.co.in/";
+   serviceUrlNew = "http://petregistration.mynoida.co.in/webapi/"
 
 
   api = {
@@ -53,6 +53,8 @@ export class ConstantsService {
     "getUserListForStaffApiUrl": this.serviceUrl + "allUserData/getStaffData/",
     "appRejApiUrl": this.serviceUrl + "allUserData/approvedRejectForm",
     "petDetailsApiUrl": this.serviceUrl + "allUserData/getFrmDetails/",
+    downloadForm: this.serviceUrlNew+'mainForm/downloadForm'
+
   }
 
 }
