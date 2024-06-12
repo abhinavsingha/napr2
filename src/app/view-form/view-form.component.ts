@@ -5,6 +5,7 @@ import { ConstantsService } from '../services/constant/constants.service';
 import { CommonService } from '../services/common/common.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import {HttpClient} from "@angular/common/http";
 declare var $: any
 
 @Component({
@@ -27,9 +28,10 @@ export class ViewFormComponent implements OnInit {
     private cons: ConstantsService,
     private router: Router,
     private SpinnerService: NgxSpinnerService,
-    private common: CommonService,
+    public common: CommonService,
     private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute,) {
+    private activatedRoute: ActivatedRoute,
+              private http: HttpClient) {
    // $.getScript('assets/main.js');
     this.activatedRoute.queryParams.subscribe(params => {
       if (params) {
@@ -97,6 +99,7 @@ export class ViewFormComponent implements OnInit {
 
   downloadcertificate() {
     debugger;
+    // this.downloadPDF();
     var url = this.cons.api.downloadForm;
     this.apiService.downloadApiWithToken(url,this.parentData['frmId']).subscribe({
       next: (v: object) => {
@@ -110,10 +113,28 @@ export class ViewFormComponent implements OnInit {
       },
       complete: () => console.info('complete')
     });
+
+
+
     // this.openPdfUrlInNewTab('data/mcpets/formCertificate/1695905870795/NAPR005101.pdf');
   }
   openPdfUrlInNewTab(pdfUrl: string): void {
 
-    window.open('http://petregistration.mynoida.co.in/'+'/'+pdfUrl, '_blank');
+    this.downloadPDF('http://petregistration.mynoida.co.in/'+'/'+pdfUrl);
+  }
+  downloadPDF(pdfUrl:string) {
+    // const pdfUrl = 'http://petregistration.mynoida.co.in/data/mcpets/formCertificate/1693933787688/NAPR004944.pdf'; // Replace with the actual PDF URL
+    this.http.get(pdfUrl, { responseType: 'blob' }).subscribe((data: Blob) => {
+      const blob = new Blob([data], { type: 'application/pdf' });
+      const url = window.URL.createObjectURL(blob);
+
+      // Create a hidden <a> element and trigger the download
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'your-pdf-file.pdf'; // Set the desired file name
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+    });
   }
 }

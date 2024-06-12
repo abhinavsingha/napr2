@@ -60,6 +60,8 @@
                                     <th scope="col">ADDRESS</th>
                                     <th scope="col">AMOUNT</th>
                                     <th scope="col">ACTION</th>
+<!--                                    <th scope="col">ACTION</th>-->
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,11 +69,13 @@
                                     *ngFor="let data of userList | mailListSearchPipe: searchText | paginate :{itemsPerPage:showListItem,currentPage:p};">
                                     <td>{{data.id}}</td>
                                     <td>{{data.formId}}</td>
-                                    <td>{{data.date}}</td>
+                                    <td>{{common.convertTime(data.date)}}</td>
                                     <td>{{data.petName}}</td>
                                     <td>{{data.ownerName}}</td>
                                     <td>{{data.address}}</td>
                                     <td>{{data.amount}}</td>
+<!--                                    <td>{{data.mobile}}</td>-->
+
                                     <td class="text-center">
                                         <button class="btn shadow-sm btn-warning btn-circle btn-sm"
                                             [routerLink]="['/view-form']" [queryParams]="{frmId:data.formId,page:'approved'}"><i class="fas fa-eye"></i></button>

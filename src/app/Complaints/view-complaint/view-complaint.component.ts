@@ -17,11 +17,11 @@ export class ViewComplaintComponent implements OnInit {
   showListItem: any = 10;
   imageUrl: any = this.cons.imageUrl;
   searchText:any;
-  
+
 
   constructor(private apiService: ApiserviceService,
     private SpinnerService: NgxSpinnerService,
-    private cons: ConstantsService,) {
+    private cons: ConstantsService,public common: CommonService) {
 
   }
 

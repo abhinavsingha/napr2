@@ -20,6 +20,7 @@ export class MailListSearchPipePipe implements PipeTransform {
         || it.amount.includes(searchText)
         || it.date.includes(searchText)
         || it.formId.includes(searchText)
+        || it.mobile.includes(searchText)
     });
 
   }

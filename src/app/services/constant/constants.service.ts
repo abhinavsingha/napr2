@@ -14,7 +14,8 @@ export class ConstantsService {
   //serviceUrl = "http://15.206.123.29:8081/Naprwebdev/"; //prod
   // imageUrl = "http://15.206.123.29:8081/"; //prod
 
-   serviceUrl="http://petregistration.mynoida.co.in/Naprwebdev/";
+   // serviceUrl="http://petregistration.mynoida.co.in/Naprwebdev/";
+   serviceUrl="http://192.168.100.238:3000/";
    imageUrl = "http://petregistration.mynoida.co.in/";
    serviceUrlNew = "http://petregistration.mynoida.co.in/webapi/"
 

@@ -71,7 +71,7 @@
                 <tr *ngFor="let item of complaintList | complaintSearch: searchText | paginate :{itemsPerPage:showListItem,currentPage:p};">
                   <td>{{item.id}}</td>
                   <td>{{item.complaintId}}</td>
-                  <td>{{item.createdOn}}</td>
+                  <td>{{common.convertTime(item.createdOn)}}</td>
                   <td>{{item.ownerName}}</td>
                   <td>{{item.petName}}</td>
                   <td>{{item.petType}}</td>

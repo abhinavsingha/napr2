@@ -19,13 +19,13 @@ export class ApprovedComponent implements OnInit {
   naprUserDetail: any;
   downloadList: any;
   searchText: any = '';
-  
+
   constructor(
     private apiService: ApiserviceService,
     public excelServices: ExportExcelService,
     private cons: ConstantsService,
     private SpinnerService: NgxSpinnerService,
-    private common: CommonService
+    public common: CommonService
   ) { }
 
   ngOnInit(): void {

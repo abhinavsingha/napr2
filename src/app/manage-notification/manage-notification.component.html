@@ -86,7 +86,7 @@
                                     *ngFor="let data of notiList | notificationSearch: searchText | paginate :{itemsPerPage:showListItem,currentPage:p};">
                                     <td>{{data.id}}</td>
                                     <td>{{data.descr}}</td>
-                                    <td>{{data.created_on}}</td>
+                                    <td>{{common.convertTime(data.created_on)}}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -33,7 +33,7 @@ export class InboxComponent implements OnInit {
     public excelServices: ExportExcelService,
     private router: Router,
     private SpinnerService: NgxSpinnerService,
-    private common: CommonService) {
+    public common: CommonService) {
     $("#actionModel").modal('hide');
 
   }

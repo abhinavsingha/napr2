@@ -71,7 +71,7 @@
                                     *ngFor="let item of historyList | complaintSearch: searchText | paginate :{itemsPerPage:showListItem,currentPage:p};">
                                     <td>{{item.id}}</td>
                                     <td>{{item.complaintId}}</td>
-                                    <td>{{item.createdOn}}</td>
+                                    <td>{{common.convertTime(item.createdOn)}}</td>
                                     <td>{{item.ownerName}}</td>
                                     <td>{{item.petName}}</td>
                                     <td>{{item.petType}}</td>
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <!-- <div class="card-footer">
-                            <button type="submit" class="btn shadow-sm btn-primary btn-user"> <i class="fas fa-paper-plane"></i> Save</button>                           
+                            <button type="submit" class="btn shadow-sm btn-primary btn-user"> <i class="fas fa-paper-plane"></i> Save</button>
                         </div> -->
             </div>
 

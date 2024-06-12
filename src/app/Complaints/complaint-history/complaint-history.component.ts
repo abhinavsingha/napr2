@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from '../../services/apiCall/apiservice.service';
 import { ConstantsService } from '../../services/constant/constants.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import {CommonService} from "../../services/common/common.service";
 
 
 @Component({
@@ -10,17 +11,18 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./complaint-history.component.scss']
 })
 export class ComplaintHistoryComponent implements OnInit {
- 
+
   p: number = 1;
   complaintHisList: any;
   showListItem: any = 10;
   historyList: any = [];
   searchText:any;
-  
+
   constructor(
     private SpinnerService: NgxSpinnerService,
     private apiService: ApiserviceService,
-    private cons: ConstantsService) { }
+    private cons: ConstantsService,
+    public common: CommonService) { }
 
   ngOnInit(): void {
     this.getComplaintList();

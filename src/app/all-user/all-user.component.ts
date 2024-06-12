@@ -27,7 +27,7 @@ export class AllUserComponent implements OnInit {
     public excelServices: ExportExcelService,
     private cons: ConstantsService,
     private SpinnerService: NgxSpinnerService,
-    private common: CommonService
+    public common: CommonService
   ) { }
 
   ngOnInit(): void {

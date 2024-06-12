@@ -18,13 +18,13 @@ export class RejectedComponent implements OnInit {
   naprUserDetail: any;
   downloadList: any;
   searchText: any = '';
-  
+
   constructor(
     private apiService: ApiserviceService,
     private cons: ConstantsService,
     public excelServices: ExportExcelService,
     private SpinnerService: NgxSpinnerService,
-    private common: CommonService
+    public common: CommonService
   ) { }
 
   ngOnInit(): void {

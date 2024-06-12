@@ -23,7 +23,7 @@ export class ManageNotificationComponent implements OnInit {
     private cons: ConstantsService,
     private SpinnerService: NgxSpinnerService,
     private formBuilder: FormBuilder,
-    private common: CommonService
+    public common: CommonService
   ) {
     this.addNotiFrom = this.formBuilder.group({
       notitext: ['', Validators.required]

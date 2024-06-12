@@ -67,7 +67,7 @@
                                     *ngFor="let data of userList | mailListSearchPipe: searchText | paginate :{itemsPerPage:showListItem,currentPage:p};">
                                     <td>{{data.id}}</td>
                                     <td>{{data.formId}}</td>
-                                    <td>{{data.date}}</td>
+                                    <td>{{common.convertTime(data.date)}}</td>
                                     <td>{{data.custName}}</td>
                                     <td>{{data.petName}}</td>
                                     <td>{{data.ownerName}}</td>
