@@ -55,9 +55,10 @@
                                     <th scope="col">SR.</th>
                                     <th scope="col">FORM ID</th>
                                     <th scope="col">DATE</th>
-                                    <th scope="col">PET NAME</th>
-                                    <th scope="col">OWNER NAME</th>
-                                    <th scope="col">ADDRESS</th>
+
+                                  <th scope="col">OWNER NAME</th>
+                                  <th scope="col">PET NAME</th>
+                                  <th scope="col">ADDRESS</th>
                                     <th scope="col">AMOUNT</th>
                                     <th scope="col">ACTION</th>
                                 </tr>
@@ -69,8 +70,9 @@
                                     <td>{{data.formId}}</td>
                                     <td>{{common.convertTime(data.date)}}</td>
                                     <td>{{data.custName}}</td>
-                                    <td>{{data.petName}}</td>
-                                    <td>{{data.ownerName}}</td>
+                                  <td>{{data.petName}}</td>
+                                  <td>{{data.address}}</td>
+
                                     <td>{{data.amount}}</td>
                                     <td class="text-center">
                                         <button class="btn shadow-sm btn-warning btn-circle btn-sm"
