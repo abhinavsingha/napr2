@@ -26,7 +26,7 @@ import { ManageBreedsComponent } from './Settings/manage-breeds/manage-breeds.co
 import { ManageSectorComponent } from './Settings/manage-sector/manage-sector.component';
 import { ManageVillageComponent } from './Settings/manage-village/manage-village.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgSelectModule } from '@ng-select/ng-select';
+// import { NgSelectModule } from '@ng-select/ng-select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ChangePasswordComponent } from './change-password/change-password.component';
@@ -86,7 +86,6 @@ import { VillageSearchPipe } from './services/pipe/villagr/village-search.pipe';
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    NgSelectModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],
