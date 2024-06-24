@@ -20,7 +20,14 @@
                 <div class="card-body">
                     <form class="user" [formGroup]="PetReportForm">
                         <div class="form-group row mb-0">
-                            <div class="col-sm-4 mb-3 required">
+                          <div class="col-sm-4 mb-3 required">
+                            <label class="control-label">Society</label>
+                            <select class="form-control br" formControlName="society">
+                              <option value="null" selected>Select Society</option>
+                              <option *ngFor="let soc of society" value="{{soc.manageSocietyId}}">{{ soc.name }}</option>
+                            </select>
+                          </div>
+                          <div class="col-sm-4 mb-3 required">
                                 <label class="control-label">Pet Type</label>
                                 <select class="form-control br" formControlName="petType">
                                     <option value="0" selected>Select Pet Type</option>
@@ -29,7 +36,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-4 mb-3 required">
-                                <label class="control-label">Status</label>
+                                <label class="control-label">Gender</label>
                                 <select class="form-control br" formControlName="gender">
                                     <option value="0" selected>Select Gender</option>
                                     <option value="Male">Male</option>

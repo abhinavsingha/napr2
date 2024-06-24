@@ -14,6 +14,8 @@ import { ExportExcelService } from 'src/app/services/excel/export-excel.service'
 export class PetTypeReportComponent implements OnInit {
 
   PetReportForm: any;
+  society: any[]=[];
+
 
 
   constructor(
@@ -26,11 +28,13 @@ export class PetTypeReportComponent implements OnInit {
   ) {
     this.PetReportForm = this.formBuilder.group({
       petType: ['', Validators.required],
-      gender: ['', Validators.required]
+      gender: ['', Validators.required],
+      society:['']
     });
   }
 
   ngOnInit(): void {
+    this.getAllSociety();
   }
 
   resetForm() {
@@ -38,11 +42,13 @@ export class PetTypeReportComponent implements OnInit {
   }
 
   getPetreport() {
+    debugger;
 
     console.log(JSON.stringify(this.PetReportForm.value));
     var getReportJson = {
       "petType": this.PetReportForm.value.petType,
       "gender": this.PetReportForm.value.gender,
+      "societyId":this.PetReportForm.value.society,
     }
     this.SpinnerService.show();
     this.apiService.postApi(this.cons.api.getPetReportApiUrl, getReportJson).subscribe({
@@ -65,6 +71,22 @@ export class PetTypeReportComponent implements OnInit {
         else {
           this.common.presentAlert('Error', 'No data found', 'error');
         }
+      },
+      error: (e) => {
+        this.common.presentAlert('Error', e['error'].response.message, 'error');
+      },
+      complete: () => console.info('complete')
+    });
+  }
+  getAllSociety() {
+    this.society=[];
+    this.SpinnerService.show();
+    this.apiService.getApi(this.cons.api.getAllSociety).subscribe({
+      next: (v: object) => {
+        let result: { [key: string]: any } = v;
+        let societyData = result['response'];
+        this.SpinnerService.hide();
+        this.society=societyData;
       },
       error: (e) => {
         this.common.presentAlert('Error', e['error'].response.message, 'error');
