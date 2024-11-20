@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { AuthenticationService } from '../services/authentication/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +12,7 @@ export class HeaderComponent implements OnInit {
   naprUserDetail: any;
   //isAuthenticated: boolean = true;
 
-  constructor(private router: Router,
-    private authService: AuthenticationService) {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -34,7 +32,6 @@ export class HeaderComponent implements OnInit {
       //console.log(JSON.stringify(result) + "=====");
       if (result.isConfirmed) {
         // User clicked "Yes" button
-        this.authService.logoutUser();
         // this.loggedIn = false;
       } else if (result.isDenied) {
         // User clicked "No" button

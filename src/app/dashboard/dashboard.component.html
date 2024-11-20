@@ -7,203 +7,203 @@
     </div>
 
     <!-- Content Row -->
-    <div class="row" *ngIf="this.detailData">
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-3 mb-4" *ngIf="this.naprUserDetail['response'].userType == 'AD' ">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
-                                Approved Amount</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">₹<span
-                                    class="count">{{this.detailData.response[0].approveAmount}}</span></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-rupee-sign fa-2x text-gray-300 text-theme"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--    <div class="row" *ngIf="this.detailData">-->
+<!--        &lt;!&ndash; Earnings (Monthly) Card Example &ndash;&gt;-->
+<!--        <div class="col-xl-3 col-md-3 mb-4" *ngIf="this.naprUserDetail['response'].userType == 'AD' ">-->
+<!--            <div class="card border-left-success shadow h-100 py-2">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row no-gutters align-items-center">-->
+<!--                        <div class="col mr-2">-->
+<!--                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">-->
+<!--                                Approved Amount</div>-->
+<!--                            <div class="h5 mb-0 font-weight-bold text-gray-800">₹<span-->
+<!--                                    class="count">{{this.detailData.response[0].approveAmount}}</span></div>-->
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <i class="fas fa-rupee-sign fa-2x text-gray-300 text-theme"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="col-xl-3 col-md-3 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
-                                Total Users</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.detailData.response[0].commanTotalUserCount}}</span></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-300 text-theme"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-3 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
-                                New Forms</div>
-                            <div *ngIf="this.naprUserDetail['response'].userType == 'AD' "
-                                class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.detailData['response'][0].adminCount[0]['ib']}}</span></div>
+<!--        <div class="col-xl-3 col-md-3 mb-4">-->
+<!--            <div class="card border-left-primary shadow h-100 py-2">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row no-gutters align-items-center">-->
+<!--                        <div class="col mr-2">-->
+<!--                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">-->
+<!--                                Total Users</div>-->
+<!--                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.detailData.response[0].commanTotalUserCount}}</span></div>-->
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <i class="fas fa-users fa-2x text-gray-300 text-theme"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-xl-3 col-md-3 mb-4">-->
+<!--            <div class="card border-left-info shadow h-100 py-2">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row no-gutters align-items-center">-->
+<!--                        <div class="col mr-2">-->
+<!--                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">-->
+<!--                                New Forms</div>-->
+<!--                            <div *ngIf="this.naprUserDetail['response'].userType == 'AD' "-->
+<!--                                class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.detailData['response'][0].adminCount[0]['ib']}}</span></div>-->
 
-                            <div *ngIf="this.naprUserDetail['response'].userType == 'SD' "
-                                class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.detailData['response'][0].staffCount[0]['ib']}}</span></div>
+<!--                            <div *ngIf="this.naprUserDetail['response'].userType == 'SD' "-->
+<!--                                class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.detailData['response'][0].staffCount[0]['ib']}}</span></div>-->
 
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fas fa-file-medical fa-2x text-gray-300 text-theme"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-3 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
-                                Total Forms</div>
-                            <div *ngIf="this.naprUserDetail['response'].userType == 'AD' "
-                                class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.totalForms}}</span></div>
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <i class="fas fas fa-file-medical fa-2x text-gray-300 text-theme"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-xl-3 col-md-3 mb-4">-->
+<!--            <div class="card border-left-warning shadow h-100 py-2">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row no-gutters align-items-center">-->
+<!--                        <div class="col mr-2">-->
+<!--                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">-->
+<!--                                Total Forms</div>-->
+<!--                            <div *ngIf="this.naprUserDetail['response'].userType == 'AD' "-->
+<!--                                class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.totalForms}}</span></div>-->
 
-                            <div *ngIf="this.naprUserDetail['response'].userType == 'SD' "
-                                class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.totalForms}}</span></div>
+<!--                            <div *ngIf="this.naprUserDetail['response'].userType == 'SD' "-->
+<!--                                class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.totalForms}}</span></div>-->
 
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fas fa-file-alt fa-2x text-gray-300 text-theme"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-3 mb-4">
-            <div class="card border-left-secondary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
-                                Completed Forms</div>
-                            <div *ngIf="this.naprUserDetail['response'].userType == 'AD' "
-                                class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.detailData['response'][0].adminCount[0]['ap']}}</span></div>
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <i class="fas fas fa-file-alt fa-2x text-gray-300 text-theme"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-xl-3 col-md-3 mb-4">-->
+<!--            <div class="card border-left-secondary shadow h-100 py-2">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row no-gutters align-items-center">-->
+<!--                        <div class="col mr-2">-->
+<!--                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">-->
+<!--                                Completed Forms</div>-->
+<!--                            <div *ngIf="this.naprUserDetail['response'].userType == 'AD' "-->
+<!--                                class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.detailData['response'][0].adminCount[0]['ap']}}</span></div>-->
 
-                            <div *ngIf="this.naprUserDetail['response'].userType == 'SD' "
-                                class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.detailData['response'][0].staffCount[0]['ap']}}</span></div>
+<!--                            <div *ngIf="this.naprUserDetail['response'].userType == 'SD' "-->
+<!--                                class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.detailData['response'][0].staffCount[0]['ap']}}</span></div>-->
 
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-file-contract fa-2x text-gray-300 text-theme"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-3 mb-4">
-            <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
-                                Rejected Forms</div>
-                            <div *ngIf="this.naprUserDetail['response'].userType == 'AD' "
-                                class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.detailData['response'][0].adminCount[0]['rt']}}</span></div>
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <i class="fas fa-file-contract fa-2x text-gray-300 text-theme"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-xl-3 col-md-3 mb-4">-->
+<!--            <div class="card border-left-danger shadow h-100 py-2">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row no-gutters align-items-center">-->
+<!--                        <div class="col mr-2">-->
+<!--                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">-->
+<!--                                Rejected Forms</div>-->
+<!--                            <div *ngIf="this.naprUserDetail['response'].userType == 'AD' "-->
+<!--                                class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.detailData['response'][0].adminCount[0]['rt']}}</span></div>-->
 
-                            <div *ngIf="this.naprUserDetail['response'].userType == 'SD' "
-                                class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.detailData['response'][0].staffCount[0]['rt']}}</span></div>
+<!--                            <div *ngIf="this.naprUserDetail['response'].userType == 'SD' "-->
+<!--                                class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.detailData['response'][0].staffCount[0]['rt']}}</span></div>-->
 
 
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-file-excel fa-2x text-gray-300 text-theme"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-3 mb-4">
-            <div class="card border-left-neon shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
-                                Total Society</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span
-                                    class="count">{{this.detailData.response[0].commanTotalSociety}}</span></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-home fa-2x text-gray-300 text-theme"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-3 mb-4">
-            <div class="card border-left-peach shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
-                                Total Manager</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="count">00000</span></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-user-tie fa-2x text-gray-300 text-theme"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <i class="fas fa-file-excel fa-2x text-gray-300 text-theme"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-xl-3 col-md-3 mb-4">-->
+<!--            <div class="card border-left-neon shadow h-100 py-2">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row no-gutters align-items-center">-->
+<!--                        <div class="col mr-2">-->
+<!--                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">-->
+<!--                                Total Society</div>-->
+<!--                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span-->
+<!--                                    class="count">{{this.detailData.response[0].commanTotalSociety}}</span></div>-->
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <i class="fas fa-home fa-2x text-gray-300 text-theme"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-xl-3 col-md-3 mb-4">-->
+<!--            <div class="card border-left-peach shadow h-100 py-2">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row no-gutters align-items-center">-->
+<!--                        <div class="col mr-2">-->
+<!--                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">-->
+<!--                                Total Manager</div>-->
+<!--                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="count">00000</span></div>-->
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <i class="fas fa-user-tie fa-2x text-gray-300 text-theme"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
-    <!-- Content Row -->
-    <div class="row">
-        <div class="col-md-7">
-            <!-- Bar Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Bar Graph</h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-container">
-                        <canvas id="my-chart" class="chart-size">
-                        </canvas>
-                    </div>
+<!--    &lt;!&ndash; Content Row &ndash;&gt;-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-7">-->
+<!--            &lt;!&ndash; Bar Chart &ndash;&gt;-->
+<!--            <div class="card shadow mb-4">-->
+<!--                <div class="card-header py-3">-->
+<!--                    <h6 class="m-0 font-weight-bold text-primary">Bar Graph</h6>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                    <div class="chart-container">-->
+<!--                        <canvas id="my-chart" class="chart-size">-->
+<!--                        </canvas>-->
+<!--                    </div>-->
 
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5">
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-5">-->
 
-            <!-- Bar Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Polar Graph</h6>
-                </div>
-                <div class="card-body pb-3">
-                    <canvas id="my-chart2" class="chart-size">
-                    </canvas>
+<!--            &lt;!&ndash; Bar Chart &ndash;&gt;-->
+<!--            <div class="card shadow mb-4">-->
+<!--                <div class="card-header py-3">-->
+<!--                    <h6 class="m-0 font-weight-bold text-primary">Polar Graph</h6>-->
+<!--                </div>-->
+<!--                <div class="card-body pb-3">-->
+<!--                    <canvas id="my-chart2" class="chart-size">-->
+<!--                    </canvas>-->
 
-                </div>
-            </div>
-        </div>
-    </div>
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
 </div>
