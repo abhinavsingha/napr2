@@ -1,14 +1,63 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-  <ng-container *ngFor="let option of side">
+<!--  <ng-container *ngFor="let option of side">-->
+<!--    <li class="nav-item">-->
+<!--              <a class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="['active']">-->
+<!--                <i>{{option.icon}}</i>-->
+<!--                  <span>{{option.title}}</span>-->
+<!--              </a>-->
+<!--      <div *ngIf="option.submenu!=undefined" id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">-->
+<!--        <div class="bg-white py-2 collapse-inner rounded">-->
+<!--          <a class="collapse-item" [routerLink]="['/manage-breeds']" [routerLinkActive]="['active']"><i class="fas fa-dog"></i> Manage Breeds</a>-->
+<!--          <a class="collapse-item" [routerLink]="['/manage-sector']" [routerLinkActive]="['active']"><i-->
+<!--            class="fas fa-city"></i> Manage Sector</a>-->
+<!--          <a class="collapse-item" [routerLink]="['/manage-village']" [routerLinkActive]="['active']"><i-->
+<!--            class="fas fa-home"></i> Manage Village</a>-->
+
+<!--        </div>-->
+<!--      </div>-->
+<!--          </li>-->
+<!--  </ng-container>-->
+
+
+
+  <ng-container *ngFor="let option of side; let i = index">
     <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="['active']">
-                <i>{{option.icon}}</i>
-                  <span>{{option.title}}</span>
-              </a>
-          </li>
+      <a
+        class="nav-link"
+        [routerLink]="['/dashboard']"
+        [routerLinkActive]="['active']"
+        (click)="toggleSubmenu(i)"
+      >
+        <i>{{ option.icon }}</i>
+        <span>{{ option.title }}</span>
+      </a>
+      <div
+        *ngIf="option.submenu"
+        [id]="'collapse' + i"
+        [class.show]="activeOptionIndex === i"
+        class="collapse"
+        aria-labelledby="headingTwo"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <ng-container *ngFor="let subOption of option.submenu">
+            <a
+              class="collapse-item"
+              [routerLink]="[subOption.link]"
+              [routerLinkActive]="['active']"
+            >
+              <i [class]="subOption.icon"></i> {{ subOption.title }}
+            </a>
+          </ng-container>
+        </div>
+      </div>
+    </li>
   </ng-container>
-<!--    &lt;!&ndash; Sidebar - Brand &ndash;&gt;-->
+
+
+
+  <!--    &lt;!&ndash; Sidebar - Brand &ndash;&gt;-->
 <!--    <a class="sidebar-brand d-flex align-items-center justify-content-center" [routerLink]=""-->
 <!--        [routerLinkActive]="['active']">-->
 <!--        <div class="sidebar-brand-icon">-->

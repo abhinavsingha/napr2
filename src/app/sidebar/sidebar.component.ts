@@ -42,6 +42,11 @@ export class SidebarComponent implements OnInit {
       "link": "/help"
     }
   ];
+  activeOptionIndex: number | null = null;
+
+  toggleSubmenu(index: number) {
+    this.activeOptionIndex = this.activeOptionIndex === index ? null : index;
+  }
   constructor(
   ) { }
 
